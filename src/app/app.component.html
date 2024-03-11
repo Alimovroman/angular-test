@@ -1,1 +1,7 @@
-<app-test1></app-test1> <app-test2></app-test2>
+<app-test1></app-test1>
+<app-test2></app-test2>
+<h1>{{ appTitle }}</h1>
+<h2>Имя {{ user.name }} Возраст {{ user.age }}</h2>
+<button [disabled]="isDisableButton" (click)="onChangeTitle()">Change Title</button>
+<input (input)="onChangeText($event)" [value]="appText" />
+<input [(ngModel)]="appText" />
