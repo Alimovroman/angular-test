@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
 
 @Component({
   selector: 'app-test1',
@@ -7,4 +7,9 @@ import { Component } from '@angular/core'
   templateUrl: './test1.component.html',
   styleUrl: './test1.component.scss',
 })
-export class Test1Component {}
+export class Test1Component {
+  name = 'Misha'
+
+  @Input() lastName?: string
+  @Input() city?: string
+}

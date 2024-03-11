@@ -6,7 +6,9 @@ import { FormsModule } from '@angular/forms'
 
 interface IUser {
   name: string
+  lastName: string
   age: number
+  city: string
 }
 
 @Component({
@@ -21,7 +23,9 @@ export class AppComponent {
   appText = ''
   user: IUser = {
     name: 'Roman',
+    lastName: 'Ivanov',
     age: 33,
+    city: 'Ryazan',
   }
   isDisableButton = true
 
