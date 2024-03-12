@@ -20,8 +20,9 @@ button {
   padding: 10px;
   border: solid 1px var(--primary-color);
   background: var(--primary-color);
-  color: white;
+  color: rgba(27, 26, 27, 0.421);
   border-radius: 8px;
+  background-color: rgb(158, 199, 158);
 }
 
 @media (min-width: 500px) and (max-width: 768px) {

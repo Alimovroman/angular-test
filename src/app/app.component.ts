@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router'
 import { Test1Component } from './test1/test1.component'
 import { Test2Component } from './test2/test2.component'
 import { FormsModule } from '@angular/forms'
+import { CommonModule } from '@angular/common'
 
 interface IUser {
   name: string
@@ -14,11 +15,13 @@ interface IUser {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, Test1Component, Test2Component, FormsModule],
+  imports: [RouterOutlet, Test1Component, Test2Component, FormsModule, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+  maths: string[] = ['rus: 3', 'en: 4']
+  newMath?: string
   appTitle = 'Instagram'
   appText = ''
   user: IUser = {
@@ -39,5 +42,9 @@ export class AppComponent {
     } else {
       this.isDisableButton = false
     }
+  }
+  getGrade(value: string) {
+    this.maths.push(value)
+    this.newMath = value
   }
 }

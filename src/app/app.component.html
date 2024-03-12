@@ -1,8 +1,10 @@
-<app-test1 [lastName]="user.lastName" [city]="user.city"></app-test1>
+<app-test1 [lastName]="user.lastName" [city]="user.city" (sendGrade)="getGrade($event)"></app-test1>
+<pre>his grade: {{ maths | json }} </pre>
+<div *ngFor="let el of maths">{{ el }}</div>
 <app-test2></app-test2>
 
 <h1>{{ appTitle }}</h1>
 <h2>{{ user.name }} {{ user.lastName }}: Возраст {{ user.age }} From {{ user.city }}</h2>
 <button [disabled]="isDisableButton" (click)="onChangeTitle()">Change Title</button>
-<input (input)="onChangeText($event)" [value]="appText" />
+<input type="text" (input)="onChangeText($event)" [value]="appText" />
 <input [(ngModel)]="appText" />
