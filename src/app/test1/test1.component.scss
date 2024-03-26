@@ -25,6 +25,13 @@ button {
   background-color: rgb(158, 199, 158);
 }
 
+.default {
+  color: grey;
+}
+.success {
+  color: green;
+}
+
 @media (min-width: 500px) and (max-width: 768px) {
   .results {
     grid-template-columns: repeat(2, 1fr);

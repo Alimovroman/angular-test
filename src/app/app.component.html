@@ -1,10 +1,36 @@
-<app-test1 [lastName]="user.lastName" [city]="user.city" (sendGrade)="getGrade($event)"></app-test1>
-<pre>his grade: {{ maths | json }} </pre>
-<div *ngFor="let el of maths">{{ el }}</div>
-<app-test2></app-test2>
+<div *ngIf="isLoading; else elseBlock">Loading.....</div>
+<ng-template #elseBlock>
+  <app-fruits></app-fruits>
+  <div>
+    <app-test1
+      [lastName]="user.lastName"
+      [city]="user.city"
+      (sendGrade)="getGrade($event)"
+    ></app-test1>
+    <pre>his grade: {{ maths | json }} </pre>
+    <div *ngFor="let el of maths">{{ el }}</div>
+    <app-test2></app-test2>
 
-<h1>{{ appTitle }}</h1>
-<h2>{{ user.name }} {{ user.lastName }}: Возраст {{ user.age }} From {{ user.city }}</h2>
-<button [disabled]="isDisableButton" (click)="onChangeTitle()">Change Title</button>
-<input type="text" (input)="onChangeText($event)" [value]="appText" />
-<input [(ngModel)]="appText" />
+    <h1>{{ appTitle }}</h1>
+    <h2>{{ user.name }} {{ user.lastName }}: Возраст {{ user.age }} From {{ user.city }}</h2>
+    <button [disabled]="isDisableButton" (click)="onChangeTitle()">Change Title</button>
+    <input type="text" (input)="onChangeText($event)" [value]="appText" />
+    <input [(ngModel)]="appText" />
+    <div *ngFor="let lesson of lessons">
+      <h3 [ngStyle]="{ color: 'red' }">{{ lesson.title }}</h3>
+      <div>
+        WeekGrades
+        <div *ngFor="let weekGrade of lesson.weekGrades">
+          <h4>{{ weekGrade.gradesItem }}</h4>
+        </div>
+      </div>
+    </div>
+    <input [(ngModel)]="value" />
+    <div [ngSwitch]="value">
+      <div *ngSwitchCase="'1'">one</div>
+      <div *ngSwitchCase="'2'">two</div>
+      <div *ngSwitchCase="'3'">three</div>
+      <div *ngSwitchDefault>yoyoyoyo</div>
+    </div>
+  </div>
+</ng-template>

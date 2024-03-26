@@ -1,0 +1,15 @@
+<div>
+  <div *ngFor="let fruit of fruits">
+    <div *ngIf="fruit.price >= 150">
+      <h3
+        [ngClass]="{
+          green: fruit.price % 2 === 0,
+          red: fruit.price % 2 === 1,
+          bigSize: fruit.price > 300
+        }"
+      >
+        {{ fruit.name }} cost {{ fruit.price }}
+      </h3>
+    </div>
+  </div>
+</div>

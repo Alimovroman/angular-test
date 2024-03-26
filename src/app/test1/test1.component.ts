@@ -1,16 +1,18 @@
+import { CommonModule } from '@angular/common'
 import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 
 @Component({
   selector: 'app-test1',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './test1.component.html',
   styleUrl: './test1.component.scss',
 })
 export class Test1Component {
   name = 'Misha'
   inputGrade = ''
+  isSuccess = true
 
   @Input() lastName?: string
   @Input() city?: string
@@ -18,5 +20,10 @@ export class Test1Component {
 
   onSendGrade() {
     this.sendGrade.emit(this.inputGrade)
+  }
+  constructor() {
+    setTimeout(() => {
+      this.isSuccess = !this.isSuccess
+    }, 3000)
   }
 }

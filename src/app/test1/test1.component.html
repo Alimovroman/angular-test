@@ -11,4 +11,6 @@
     <input [(ngModel)]="inputGrade" /><button (click)="onSendGrade()">send grade</button
     >{{ inputGrade }}
   </div>
+  <div class="default success">Lorem Morem</div>
+  <h1 [ngClass]="{ default: !isSuccess, success: isSuccess }">Lorem Morem Porem</h1>
 </div>
