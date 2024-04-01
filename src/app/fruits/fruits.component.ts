@@ -16,6 +16,8 @@ interface Fruit {
   styleUrl: './fruits.component.css',
 })
 export class FruitsComponent {
+  fruitsUrl = 'http:/www.fruits.com'
+  date = new Date()
   fruits: Fruit[] = [
     { id: 1, name: 'aadad', price: 100 },
     { id: 2, name: 'aada123d', price: 207 },

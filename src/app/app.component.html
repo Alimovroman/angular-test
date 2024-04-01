@@ -8,7 +8,7 @@
       (sendGrade)="getGrade($event)"
     ></app-test1>
     <pre>his grade: {{ maths | json }} </pre>
-    <div *ngFor="let el of maths">{{ el }}</div>
+    <div *ngFor="let el of maths">{{ el | uppercase }}</div>
     <app-test2></app-test2>
 
     <h1>{{ appTitle }}</h1>
@@ -17,7 +17,7 @@
     <input type="text" (input)="onChangeText($event)" [value]="appText" />
     <input [(ngModel)]="appText" />
     <div *ngFor="let lesson of lessons">
-      <h3 [ngStyle]="{ color: 'red' }">{{ lesson.title }}</h3>
+      <h3 [ngStyle]="{ color: 'red' }">{{ lesson.title | titlecase }}</h3>
       <div>
         WeekGrades
         <div *ngFor="let weekGrade of lesson.weekGrades">
