@@ -5,6 +5,9 @@ import { Test2Component } from './test2/test2.component'
 import { FormsModule } from '@angular/forms'
 import { CommonModule } from '@angular/common'
 import { FruitsComponent } from './fruits/fruits.component'
+import { CompAComponent } from './comp-a/comp-a.component'
+import { ValueService } from '../services/service.value'
+import { CompBComponent } from './comp-b/comp-b.component'
 
 interface IUser {
   name: string
@@ -32,9 +35,12 @@ interface Lessons {
     Test2Component,
     FormsModule,
     CommonModule,
+    CompAComponent,
+    CompBComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  // providers: [ValueService],
 })
 export class AppComponent {
   maths: string[] = ['rus: 3', 'en: 4']
