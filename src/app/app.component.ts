@@ -8,6 +8,8 @@ import { FruitsComponent } from './fruits/fruits.component'
 import { CompAComponent } from './comp-a/comp-a.component'
 import { ValueService } from '../services/service.value'
 import { CompBComponent } from './comp-b/comp-b.component'
+import { Todos } from './todos/todos.component'
+import { HttpClientModule } from '@angular/common/http'
 
 interface IUser {
   name: string
@@ -37,6 +39,8 @@ interface Lessons {
     CommonModule,
     CompAComponent,
     CompBComponent,
+    Todos,
+    HttpClientModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
