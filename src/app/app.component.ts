@@ -10,6 +10,7 @@ import { ValueService } from '../services/service.value'
 import { CompBComponent } from './comp-b/comp-b.component'
 import { Todos } from './todos/todos.component'
 import { HttpClientModule } from '@angular/common/http'
+import { TodosService } from '../services/todos.service'
 
 interface IUser {
   name: string
@@ -44,7 +45,7 @@ interface Lessons {
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  // providers: [ValueService],
+  providers: [ValueService, TodosService],
 })
 export class AppComponent {
   maths: string[] = ['rus: 3', 'en: 4']

@@ -1,19 +1,8 @@
 import { CommonModule } from '@angular/common'
-import { HttpClient } from '@angular/common/http'
-import { Component, OnInit } from '@angular/core'
-
-interface BaseResTodo<T = {}> {
-  data: T
-  fieldsErrors: string[]
-  messages: string[]
-  resultCode: number
-}
-interface Todo {
-  addedDate: string
-  id: string
-  order: number
-  title: string
-}
+import { Component, OnDestroy, OnInit } from '@angular/core'
+import { Todo, TodosService } from '../../services/todos.service'
+import { HttpErrorResponse } from '@angular/common/http'
+import { Observable, Subscription } from 'rxjs'
 
 @Component({
   selector: 'todos',
@@ -23,46 +12,26 @@ interface Todo {
   imports: [CommonModule],
 })
 export class Todos implements OnInit {
-  todos: Todo[] = []
-  todosHttpOptions = {
-    withCredentials: true,
-    headers: {
-      'API-KEY': 'ffdb5a84-7670-48ab-a1c2-5437e028d270',
-    },
-  }
+  todos$: Observable<Todo[]> = new Observable()
+  error = ''
 
-  constructor(private http: HttpClient) {}
+  constructor(private todosService: TodosService) {}
 
   ngOnInit(): void {
-    this.getTodo()
+    this.todos$ = this.todosService.todos$
+    this.getTodos()
   }
 
-  getTodo() {
-    this.http
-      .get<Todo[]>('https://social-network.samuraijs.com/api/1.1/todo-lists', this.todosHttpOptions)
-      .subscribe(res => {
-        this.todos = res
-      })
+  getTodos() {
+    this.todosService.getTodos()
   }
+
   createTodo() {
     const randomNamber = Math.floor(Math.random() * 100)
     const title = 'Angular' + randomNamber
-    this.http
-      .post<
-        BaseResTodo<{ item: Todo }>
-      >('https://social-network.samuraijs.com/api/1.1/todo-lists', { title }, this.todosHttpOptions)
-      .subscribe(res => {
-        this.todos.unshift(res.data.item)
-      })
+    this.todosService.createTodo(title)
   }
   deleteTodo(id: string) {
-    this.http
-      .delete<BaseResTodo>(
-        `https://social-network.samuraijs.com/api/1.1/todo-lists/${id}`,
-        this.todosHttpOptions
-      )
-      .subscribe(res => {
-        this.todos = this.todos.filter(t => t.id !== id)
-      })
+    this.todosService.deleteTodo(id)
   }
 }
