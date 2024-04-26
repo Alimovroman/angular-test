@@ -1,0 +1,13 @@
+.error {
+  color: red;
+}
+.inputError {
+  border: 2px solid red;
+  background-color: rgb(250, 142, 142);
+  border-radius: 2px;
+}
+.inputSuccess {
+  border: 2px solid rgb(22, 164, 20);
+  background-color: rgb(142, 250, 144);
+  border-radius: 2px;
+}

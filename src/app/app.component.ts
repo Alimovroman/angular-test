@@ -2,7 +2,7 @@ import { Component } from '@angular/core'
 import { RouterOutlet } from '@angular/router'
 import { Test1Component } from './test1/test1.component'
 import { Test2Component } from './test2/test2.component'
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { CommonModule } from '@angular/common'
 import { FruitsComponent } from './fruits/fruits.component'
 import { CompAComponent } from './comp-a/comp-a.component'
@@ -11,6 +11,7 @@ import { CompBComponent } from './comp-b/comp-b.component'
 import { Todos } from './todos/todos.component'
 import { HttpClientModule } from '@angular/common/http'
 import { TodosService } from '../services/todos.service'
+import { LoginComponent } from './login/login.component'
 
 interface IUser {
   name: string
@@ -42,6 +43,8 @@ interface Lessons {
     CompBComponent,
     Todos,
     HttpClientModule,
+    ReactiveFormsModule,
+    LoginComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
