@@ -1,13 +1,24 @@
-<app-login></app-login>
-
+<nav>
+  <a
+    class="button"
+    routerLink="/"
+    routerLinkActive="activebutton"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >Home</a
+  >
+  <a class="button" routerLink="/users" routerLinkActive="activebutton">Users</a>
+  <a class="button" routerLink="/profile" routerLinkActive="activebutton">Profile</a>
+  <a class="button" routerLink="/login" routerLinkActive="activebutton">Login</a>
+  <a class="button" routerLink="/fruits" routerLinkActive="activebutton">Fruits</a>
+  <a class="button" routerLink="/todos" routerLinkActive="activebutton">Todos</a>
+</nav>
+<router-outlet></router-outlet>
 <div>
   <inst-comp-a></inst-comp-a>
   <inst-comp-b></inst-comp-b>
 </div>
-<todos></todos>
 <div *ngIf="isLoading; else elseBlock">Loading.....</div>
 <ng-template #elseBlock>
-  <app-fruits></app-fruits>
   <div>
     <app-test1
       [lastName]="user.lastName"
@@ -16,8 +27,6 @@
     ></app-test1>
     <pre>his grade: {{ maths | json }} </pre>
     <div *ngFor="let el of maths">{{ el | uppercase }}</div>
-    <app-test2></app-test2>
-
     <h1>{{ appTitle }}</h1>
     <h2>{{ user.name }} {{ user.lastName }}: Возраст {{ user.age }} From {{ user.city }}</h2>
     <button [disabled]="isDisableButton" (click)="onChangeTitle()">Change Title</button>

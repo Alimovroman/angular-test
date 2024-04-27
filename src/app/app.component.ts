@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { RouterOutlet } from '@angular/router'
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router'
 import { Test1Component } from './test1/test1.component'
 import { Test2Component } from './test2/test2.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
@@ -12,6 +12,8 @@ import { Todos } from './todos/todos.component'
 import { HttpClientModule } from '@angular/common/http'
 import { TodosService } from '../services/todos.service'
 import { LoginComponent } from './login/login.component'
+import { UsersService } from '../services/users.service'
+import { ProfileService } from '../services/profile.service'
 
 interface IUser {
   name: string
@@ -45,10 +47,12 @@ interface Lessons {
     HttpClientModule,
     ReactiveFormsModule,
     LoginComponent,
+    RouterLink,
+    RouterLinkActive,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  providers: [ValueService, TodosService],
+  providers: [ValueService, TodosService, UsersService, ProfileService],
 })
 export class AppComponent {
   maths: string[] = ['rus: 3', 'en: 4']
