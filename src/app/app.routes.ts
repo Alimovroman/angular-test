@@ -6,14 +6,15 @@ import { FruitsComponent } from './components/fruits/fruits.component'
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component'
 import { UsersComponent } from './components/users/users.component'
 import { ProfileComponent } from './components/profile/profile.component'
+import { authGuard } from './guard/auth.guard'
 
 export const routes: Routes = [
   { path: '', component: Test2Component },
   { path: 'login', component: LoginComponent },
-  { path: 'todos', component: FruitsComponent },
-  { path: 'fruits', component: Todos },
-  { path: 'users', component: UsersComponent },
-  { path: 'profile/:userId', component: ProfileComponent },
+  { path: 'todos', component: FruitsComponent, canActivate: [authGuard] },
+  { path: 'fruits', component: Todos, canActivate: [authGuard] },
+  { path: 'users', component: UsersComponent, canActivate: [authGuard] },
+  { path: 'profile/:userId', component: ProfileComponent, canActivate: [authGuard] },
   { path: '404', component: PageNotFoundComponent },
   { path: '**', redirectTo: '/404', pathMatch: 'full' },
 ]
