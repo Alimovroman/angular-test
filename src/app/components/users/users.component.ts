@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core'
-import { User, UsersService } from '../../services/users.service'
+import { User, UsersService } from '../../../services/users.service'
 import { Observable } from 'rxjs'
 import { CommonModule } from '@angular/common'
 import { HttpClientModule } from '@angular/common/http'
-import { ActivatedRoute, Router, RouterLink } from '@angular/router'
+import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router'
 
 @Component({
   selector: 'app-users',
@@ -22,9 +22,9 @@ export class UsersComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const page = Number(this.route.snapshot.queryParamMap.get('page'))
-    const nextPage = page ? page : 1
-    this.getUsers(nextPage)
+    this.route.queryParams.subscribe((params: Params) => {
+      this.getUsers(params['page'] ? params['page'] : 1)
+    })
   }
   getUsers(page: number) {
     this.$users = this.usersService.getUsers(page)
@@ -33,8 +33,12 @@ export class UsersComponent implements OnInit {
     const page = Number(this.route.snapshot.queryParamMap.get('page'))
     const nextPage = page ? page + 1 : 2
 
-    this.router.navigateByUrl(`users?page=${nextPage}`).then(() => {
-      this.getUsers(nextPage)
-    })
+    //1 variant
+    // this.router.navigateByUrl(`users?page=${nextPage}`).then(() => {
+    //   this.getUsers(nextPage)
+    // })
+
+    //2 variant
+    this.router.navigate(['/users'], { queryParams: { page: nextPage } })
   }
 }

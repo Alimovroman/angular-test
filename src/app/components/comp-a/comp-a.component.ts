@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core'
-import { ValueService } from '../../services/service.value'
+import { ValueService } from '../../../services/service.value'
 import { CommonModule } from '@angular/common'
 import { Observable } from 'rxjs'
-import { BeautyService } from '../../services/beauty.service'
+import { BeautyService } from '../../../services/beauty.service'
 
 @Component({
   selector: 'inst-comp-a',

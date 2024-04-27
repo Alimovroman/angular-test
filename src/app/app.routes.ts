@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router'
-import { Test2Component } from './test2/test2.component'
-import { LoginComponent } from './login/login.component'
-import { Todos } from './todos/todos.component'
-import { FruitsComponent } from './fruits/fruits.component'
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
-import { UsersComponent } from './users/users.component'
-import { ProfileComponent } from './profile/profile.component'
+import { Test2Component } from './components/test2/test2.component'
+import { LoginComponent } from './components/login/login.component'
+import { Todos } from './components/todos/todos.component'
+import { FruitsComponent } from './components/fruits/fruits.component'
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component'
+import { UsersComponent } from './components/users/users.component'
+import { ProfileComponent } from './components/profile/profile.component'
 
 export const routes: Routes = [
   { path: '', component: Test2Component },

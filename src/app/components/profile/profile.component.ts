@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs'
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
-import { ProfileResponse, ProfileService } from '../../services/profile.service'
+import { ProfileResponse, ProfileService } from '../../../services/profile.service'
 import { CommonModule } from '@angular/common'
 
 @Component({

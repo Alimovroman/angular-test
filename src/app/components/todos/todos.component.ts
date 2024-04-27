@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common'
 import { Component, OnDestroy, OnInit } from '@angular/core'
-import { Todo, TodosService } from '../../services/todos.service'
+import { Todo, TodosService } from '../../../services/todos.service'
 import { HttpErrorResponse } from '@angular/common/http'
 import { Observable, Subscription } from 'rxjs'
 
