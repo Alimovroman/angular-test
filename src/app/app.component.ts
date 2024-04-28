@@ -1,20 +1,24 @@
 import { Component, OnInit } from '@angular/core'
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router'
-import { Test1Component } from './components/test1/test1.component'
-import { Test2Component } from './components/test2/test2.component'
+import { Test1Component } from './home/components/test1/test1.component'
+import { Test2Component } from './home/components/test2/test2.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { CommonModule } from '@angular/common'
-import { FruitsComponent } from './components/fruits/fruits.component'
-import { CompAComponent } from './components/comp-a/comp-a.component'
-import { ValueService } from '../services/service.value'
-import { CompBComponent } from './components/comp-b/comp-b.component'
-import { Todos } from './components/todos/todos.component'
+import { CompAComponent } from './home/components/comp-a/comp-a.component'
+import { ValueService } from './home/services/service.value'
+import { CompBComponent } from './home/components/comp-b/comp-b.component'
 import { HttpClientModule } from '@angular/common/http'
-import { TodosService } from '../services/todos.service'
-import { LoginComponent } from './components/login/login.component'
-import { UsersService } from '../services/users.service'
-import { ProfileService } from '../services/profile.service'
-import { AuthService } from '../services/auth.service'
+import { TodosService } from './todos/services/todos.service'
+import { LoginComponent } from './auth/components/login/login.component'
+import { UsersService } from './users/services/users.service'
+import { ProfileService } from './profile/services/profile.service'
+import { AuthService } from './core/services/auth.service'
+import { HomeModule } from './home/home.module'
+import { AuthModule } from './auth/auth.module'
+import { UsersModule } from './users/users.module'
+import { ProfileModule } from './profile/profile.module'
+import { FruitsModule } from './fruits/fruits.module'
+import { TodosModule } from './todos/todos.module'
 
 interface IUser {
   name: string
@@ -37,19 +41,22 @@ interface Lessons {
   standalone: true,
   imports: [
     RouterOutlet,
-    FruitsComponent,
     Test1Component,
-    Test2Component,
     FormsModule,
     CommonModule,
     CompAComponent,
     CompBComponent,
-    Todos,
     HttpClientModule,
     ReactiveFormsModule,
-    LoginComponent,
     RouterLink,
     RouterLinkActive,
+
+    HomeModule,
+    AuthModule,
+    UsersModule,
+    ProfileModule,
+    FruitsModule,
+    TodosModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
